@@ -77,22 +77,22 @@ The abstract goes here. The abstract goes here. The abstract goes here. The abst
 %----------------------------------------------------------------------------------------
 
 \section*{Introduction}
-	
-At the Faculty of Computer and Information Science (UL FRI), with approximately 2,000 enrolled students, the student office receives numerous recurring questions that could be efficiently addressed through an automated system. However, general-purpose conversational AI tools often lack the institutional context needed to answer faculty-specific questions accurately, leading to irrelevant responses.
-In this project, we propose to develop a domain-specific conversational assistant designed to handle the most common inquiries from students at UL FRI. The system uses Retrieval-Augmented Generation (RAG) to make responses based on verified institutional sources, including the official FRI FAQ pages, study rules, and administrative guidelines. Our assistant aims to deliver accurate, context-aware answers while redirecting out-of-scope queries to human staff.
+Grafana is a widely used open-source platform for data visualization, monitoring, and analysis. Because it offers many features and supports a wide range of use cases, its documentation is extensive. As a result, users may sometimes find it difficult to navigate efficiently. The goal of our project is to build an AI assistant that helps users access relevant parts of the documentation more easily. The assistant will retrieve and present information from the documentation based on the user’s query. This could significantly reduce the time needed to solve specific problems, since users would no longer have to manually search through large sections of documentation. The target users are system administrators, developers, and casual Grafana users.
 
-The primary motivation for this project is to reduce the burden on student office staff and provide students with instant, reliable answers at any time. the RAG approach allows us to work with a relatively small corpus of institutional documents while still having the generative capabilities of modern large language models.
+There are already existing solutions for this problem. Grafana includes a keyword-based search function, and it also provides its own AI assistant. However, that assistant is designed to provide more general information about Grafana, while our solution will focus specifically on the official documentation. Because of this narrower focus, our assistant should be able to deliver more precise and relevant answers to documentation-related questions.
+
+The primary motivation for this project is to reduce the time it takes users to set up or learn something new when using grafana and provide them with instant, reliable answers. We are going to use the RAG approach. With this approach, the system first retrieves the most relevant sections of the documentation in response to a user query and then uses a language model to generate an answer based on those retrieved sources. This allows the assistant to provide responses that are more accurate, context-aware, and grounded in the documentation itself. As a result, the system can reduce irrelevant answers and help users find reliable information more quickly.
 
 \section*{Related Work}
 
-In higher education, RAG-based chatbots have been successfully applied to student support. For instance, the College RAG Chatbot ingests college brochures, FAQs, and guides to answer admissions and academic queries accurately from verified sources \cite{college_rag_chatbot_github}.
+In higher education, RAG-based chatbots have been successfully applied to student support. For instance, the College RAG Chatbot ingests college brochures, FAQs, and guides to answer admissions and academic queries accurately from verified sources \cite{college_rag_chatbot_github}. Our AI assistant will not be used for student support, but this working chatbot could still give us a lot of helpful insight for making it.
 
 To address complex queries over large document collections, Lee \cite{lee2025transforming} proposes a RAG framework that decomposes multihop questions into single-hop subquestions using an LLM.
-Closer to home, the UL FS example chatbot demonstrates practical institutional use for student queries, inspiring our FRI-specific adaptation. These works validate RAG's effectiveness for administrative chatbots (\url{https://www.fs.uni-lj.si/en/}).
 
 \section*{Proposed Data}
 
-For this project, we will use web-accessible data, for example UL FRI web pages (\url{https://www.fri.uni-lj.si/}), timetables (\url{https://urnik.fri.uni-lj.si/timetable/}), and documents.
+For this project, we will use web-accessible documentation from the official Grafana webpage (\url{https://grafana.com/docs/}).
+
 %----------------------------------------------------------------------------------------
 %	REFERENCE LIST
 %----------------------------------------------------------------------------------------

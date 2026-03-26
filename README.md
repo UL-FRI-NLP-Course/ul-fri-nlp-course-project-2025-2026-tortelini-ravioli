@@ -1,8 +1,7 @@
-# Natural language processing course: `UL FRI Student Affairs Chatbox`
+# Natural language processing course: `Grafana Documentation Chatbot`
 
 ## Proposed datasets:
 
-- [FRI - Univerza v Ljubljani](https://www.fri.uni-lj.si/)
-- [URNIK](https://urnik.fri.uni-lj.si/timetable//)
+- [Grafana Labs - Technical documentation](https://grafana.com/docs/)
 
 
