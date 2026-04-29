@@ -1,6 +1,6 @@
 from llama_index.core import VectorStoreIndex, StorageContext, Settings
 from llama_index.core.readers import SimpleDirectoryReader
-from llama_index.core.node_parser import MarkdownNodeParser, SentenceSplitter
+from llama_index.core.node_parser import MarkdownElementNodeParser, SentenceSplitter
 from llama_index.core.ingestion import IngestionPipeline
 from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.llms.ollama import Ollama
@@ -26,7 +26,7 @@ documents = SimpleDirectoryReader(
 
 pipeline = IngestionPipeline(
     transformations=[
-        MarkdownNodeParser(),
+        MarkdownElementNodeParser(),
         SentenceSplitter(chunk_size=512, chunk_overlap=64),
     ]
 )
