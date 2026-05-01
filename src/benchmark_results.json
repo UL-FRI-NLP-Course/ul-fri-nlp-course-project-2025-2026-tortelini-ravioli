@@ -3,6 +3,7 @@
 		"query": "What is Grafana used for?",
 		"response_time_sec": 23.420902729034424,
 		"response": "Grafana is a tool used to visualize traces and metrics. It can also be traced itself, allowing users to view all traffic related to its instance. This feature helps with debugging and performance monitoring. Additionally, Grafana is often used as a platform to manage dashboards, data sources, and folders, easing the administration of various resources.",
+		"rating": "kksne nepotrebne informacije (this feature ...), ne pove glih usega (recimo data sources itd.); 4/5",
 		"sources": [
 			"grafana/docs/sources/as-code/infrastructure-as-code/_index.md",
 			"grafana/docs/sources/setup-grafana/configure-grafana/_index.md",
@@ -15,6 +16,7 @@
 		"query": "How do I create a new dashboard?",
 		"response_time_sec": 44.39709520339966,
 		"response": "To make a copy of an existing dashboard, you would need to follow specific steps. However, if you want to create a completely new dashboard from scratch, here's what you can do:\n\n1. First, navigate to the part of Grafana where dashboards are managed.\n2. Click on the **Add panel** or **Add dashboard** button. Depending on your version and configuration, this might be located in the sidebar, toolbar, or other areas of the interface.\n3. If creating a new dashboard directly is not an option, you can explore existing ones to find inspiration or to create a new one based on an existing layout.\n\nIf you're using Grafana v9.0 or later, you have another option: you can now create panels and/or dashboards directly from the Explore feature. When clicking on the “Add to dashboard” button in the Explore toolbar, users can create a panel in a new dashboard or in an existing one.",
+		"rating": "zakaj zacnemo z copy; 4/5 (lih zarad copy)",
 		"sources": [
 			"grafana/docs/sources/visualizations/dashboards/build-dashboards/create-dashboard/_index.md",
 			"grafana/docs/sources/visualizations/dashboards/build-dashboards/create-dashboard/_index.md",
@@ -27,6 +29,7 @@
 		"query": "Explain how to set up alerts.",
 		"response_time_sec": 67.17094588279724,
 		"response": "To set up alerts, you need to configure an alert rule that consists of one or more queries and expressions selecting the data you want to measure. The condition in the alert rule determines the threshold that must be met or exceeded for the alert to fire.\n\nChoose a contact point or notification policies in the alert rule to determine how to receive alert notifications. You can either direct alerts to a contact point or use notification policies for more flexibility.\n\nBefore setting up an alert, it's essential to have a basic understanding of your monitoring setup and data sources. This includes knowing which metrics are relevant and how they correlate with each other.\n\nHere's a simplified approach:\n\n1.  Identify what you want to measure: Determine the specific conditions or thresholds that indicate a problem.\n2.  Define an alert rule: Use PromQL expressions or simple boolean logic to define when an alert should fire based on your data.\n3.  Configure notification methods: Decide whether you'll be sending notifications directly to a contact point or through more complex policies involving multiple points of contact.\n4.  Evaluate and refine: Regularly review the performance of your alerts, adjusting rules as needed for better accuracy.\n\nThe key is understanding how alert rules are evaluated and what each component does in the process. This involves knowing how data is sourced, processed, and analyzed to trigger an alert.",
+		"rating": "ti lepo pove kje zacnet kaj rabit itd; 5/5",
 		"sources": [
 			"grafana/docs/sources/alerting/configure-notifications/_index.md",
 			"grafana/docs/sources/tutorials/alerting-get-started/index.md",
@@ -39,6 +42,7 @@
 		"query": "What data sources does Grafana support?",
 		"response_time_sec": 24.545785188674927,
 		"response": "Grafana supports a variety of data sources that can be used to retrieve and visualize stored data. These include but are not limited to cloud monitoring services, SQL databases, Prometheus servers, Loki instances, and many more. Additionally, there are numerous plugins available for Grafana that allow users to install and utilize additional data source types if needed.",
+		"rating": "5/5",
 		"sources": [
 			"grafana/docs/sources/datasources/_index.md",
 			"grafana/docs/sources/whatsnew/whats-new-in-v10-1.md",
@@ -51,6 +55,7 @@
 		"query": "How can I share a dashboard with others?",
 		"response_time_sec": 26.29105019569397,
 		"response": "You can share a dashboard with others in several ways:\n\n- Externally with anyone by creating an externally shared link\n- Externally with specific people using email sharing\n- As a report\n- As a snapshot\n- As a PDF export\n- As a JSON file export\n- As an image export",
+		"rating": "(je treba pocekirat ce je to use), mogoce za usako primer?; 4.5/5?",
 		"sources": [
 			"grafana/docs/sources/visualizations/dashboards/share-dashboards-panels/shared-dashboards/index.md",
 			"grafana/docs/sources/visualizations/dashboards/share-dashboards-panels/shared-dashboards/index.md",
@@ -63,6 +68,7 @@
 		"query": "Describe the process to install plugins.",
 		"response_time_sec": 52.270599126815796,
 		"response": "To install a plugin, you can follow these general steps:\n\n1. First, make sure you have access to the Grafana interface and that you are logged in with an account that has the necessary permissions.\n2. Navigate to the **Administration** section of Grafana, where you will find options for managing plugins.\n3. Within the **Plugins and data > Plugins** section, you can browse through available plugins and select one to install by clicking on its logo and then selecting the **Install** option.\n\nAlternatively, there are other methods for installing a plugin depending on your environment or setup. These include:\n\n1. Using the Grafana CLI: This allows you to manage plugins using a command-line tool.\n2. Installing from a ZIP file: If the plugin is not available in the Plugin Catalog or if you have limited internet access, you can download an archive containing the plugin assets and install it manually.\n\nIt's worth noting that some plugins may require specific configuration or setup after installation. It's also recommended to regularly update your plugins to ensure you have the latest features and security patches.",
+		"rating": "5/5",
 		"sources": [
 			"grafana/docs/sources/administration/plugin-management/_index.md",
 			"grafana/docs/sources/administration/plugin-management/_index.md",
@@ -75,6 +81,7 @@
 		"query": "How do I manage user permissions?",
 		"response_time_sec": 31.610427856445312,
 		"response": "To control user access to data sources, dashboards, users, and teams, it's recommended to assign a user one of three types of permission sets. The available roles are server administrator permissions, organization permissions, or dashboard and folder permissions. Server administrators can manage Grafana server-wide settings and resources. Organization permissions allow managing access to dashboards, alerts, plugins, teams, playlists, and other resources for an entire organization. Dashboard and folder permissions enable managing access to dashboards and folders.",
+		"rating": "garbage in, garbage out :); 1/5 (pac mal neumno zastavljeno uprasanje)",
 		"sources": [
 			"grafana/docs/sources/administration/user-management/_index.md",
 			"grafana/docs/sources/administration/user-management/_index.md",
@@ -87,6 +94,7 @@
 		"query": "What is the default port for Grafana?",
 		"response_time_sec": 12.585433721542358,
 		"response": "3000",
+		"rating": "5/5",
 		"sources": [
 			"grafana/docs/sources/setup-grafana/configure-grafana/_index.md",
 			"grafana/docs/sources/setup-grafana/configure-grafana/_index.md",
@@ -99,6 +107,7 @@
 		"query": "How to upgrade Grafana to the latest version?",
 		"response_time_sec": 50.46282243728638,
 		"response": "Before upgrading Grafana to the latest version, it's essential to understand the support levels for your current version. Each minor release is supported for 9 months after its release date, and the last minor release of a major version receives extended support for 15 months after its release date.\n\nTo ensure a smooth upgrade process, you should check the official documentation for the latest version and follow the recommended steps. It's also crucial to back up your Grafana instance before making any changes.\n\nAdditionally, if you're upgrading from an earlier version, be aware that significant architectural improvements and modernizations might be included in the new version. This could lead to breaking changes that require migration steps, so it's vital to carefully review the upgrade process and plan accordingly.\n\nWhen selecting the latest version, consider the support level for your current version and whether it aligns with your organization's needs. If you're unsure about any aspect of the upgrade process, consult the official documentation or seek guidance from experienced professionals.",
+		"rating": "2/5; ni odgovor na uprasanje",
 		"sources": [
 			"grafana/docs/sources/upgrade-guide/upgrade-v9.4/index.md",
 			"grafana/docs/sources/upgrade-guide/when-to-upgrade/index.md",
@@ -111,6 +120,7 @@
 		"query": "Where are Grafana logs stored?",
 		"response_time_sec": 29.372939586639404,
 		"response": "In order to store logs in Grafana, you'll need a data source that supports log storage. You can configure this using Terraform with an example like the one provided for Elasticsearch logs, which is then linked to other dashboards and visualizations in Grafana for analysis. This involves defining the data link to the specific index where logs are stored, such as '[filebeat-]YYYY.MM.DD'.",
+		"rating": "0/5; ni odgovor na uprasanje",
 		"sources": [
 			"grafana/docs/sources/whatsnew/whats-new-in-v9-0.md",
 			"grafana/docs/sources/upgrade-guide/upgrade-v9.0/index.md",
@@ -123,6 +133,7 @@
 		"query": "How do I change the Grafana admin password?",
 		"response_time_sec": 43.86495351791382,
 		"response": "To reset the admin password, you can use the `grafana cli` command. You can run the following command:\n\n```bash\ngrafana cli admin reset-admin-password <new password>\n```\n\nIf you know the ID of the admin user, you can use the `--user-id` flag to specify the user ID.\n\nIf there are two flags being used to set the homepath and the config file path, then running the command returns an error. To correct this, use the `--homepath` global option to specify the Grafana default homepath for this command:\n\n```bash\ngrafana cli --homepath \"/usr/share/grafana\" admin reset-admin-password <new password>\n```\n\nAlternatively, you can also reset the admin password using a specific command if you installed Grafana using Homebrew.",
+		"rating": "3/5; pravi odgovor ampak naprej pa blodi",
 		"sources": [
 			"grafana/docs/sources/administration/user-management/user-preferences/index.md",
 			"grafana/docs/sources/administration/user-management/user-preferences/index.md",
@@ -135,6 +146,7 @@
 		"query": "How do I add a Prometheus data source?",
 		"response_time_sec": 28.446274280548096,
 		"response": "To add a Prometheus data source, you will first need to decide if you want to use InfluxQL or Flux as your query language. This will determine which specific settings are available for your data source. Once you have chosen your query language, follow the general instructions to [add a data source](../../datasources/#add-a-data-source). After adding the data source, configure it according to your chosen query language's unique requirements.",
+		"rating": "0/5; karnekej",
 		"sources": [
 			"grafana/docs/sources/datasources/_index.md",
 			"grafana/docs/sources/fundamentals/getting-started/first-dashboards/get-started-grafana-influxdb.md",
@@ -147,6 +159,7 @@
 		"query": "Can Grafana send alert notifications?",
 		"response_time_sec": 22.247233390808105,
 		"response": "Yes, it is possible to send alert notifications with Grafana. This can be done by configuring how, when, and where to send alerts, including customizing notification messages and using templates.",
+		"rating": "5/5",
 		"sources": [
 			"grafana/docs/sources/alerting/configure-notifications/_index.md",
 			"grafana/docs/sources/alerting/fundamentals/notifications/_index.md",
@@ -159,6 +172,7 @@
 		"query": "How do I back up Grafana?",
 		"response_time_sec": 47.19003248214722,
 		"response": "To back up Grafana, you should copy the following items to your backup repository:\n\n1. The Grafana configuration file(s): You can find these in directories such as `$WORKING_DIR/defaults.ini`, `$WORKING_DIR/custom.ini`, or `/etc/grafana/grafana.ini` (if installed using `deb` or `rpm` packages).\n2. Plugin data: Copy all files and folders recursively from the plugin location, which is typically either `$WORKING_DIR/data/plugins` or `/var/lib/grafana/plugins`.\n3. The Grafana database file: For SQLite databases, this is a single file that stores all the data on disk. You can find it in a directory such as `$WORKING_DIR/data/grafana.db` (default location for binary or source installations) or `/var/lib/grafana/grafana.db` (default location for `deb` or `rpm` packages).\n\nRemember to also shut down your Grafana service before backing up the SQLite database.",
+		"rating": "5/5",
 		"sources": [
 			"grafana/docs/sources/shared/back-up/back-up-grafana.md",
 			"grafana/docs/sources/shared/back-up/back-up-grafana.md",
@@ -171,6 +185,7 @@
 		"query": "Where is the Grafana configuration file located?",
 		"response_time_sec": 28.261598348617554,
 		"response": "The location of the Grafana configuration file depends on how Grafana was installed. \n\nIf you installed using a deb or rpm package, it's located at `/etc/grafana/grafana.ini`. This path is specified in the Grafana `init.d` script using the `--config` file parameter.\n\nOtherwise, default and custom configurations are typically found in `$WORKING_DIR/defaults.ini` and `$WORKING_DIR/custom.ini`, respectively.",
+		"rating": "5/5",
 		"sources": [
 			"grafana/docs/sources/shared/back-up/back-up-grafana.md",
 			"grafana/docs/sources/administration/cli.md",
@@ -183,6 +198,7 @@
 		"query": "How do I invite another user to Grafana?",
 		"response_time_sec": 42.38100981712341,
 		"response": "To invite another user to Grafana, you need to assign them a role in an organization. You can do this by clicking on **Administration > Users and access > Users**, then select the organization where you want to add the new user. Click the three vertical dots next to a field, and choose \"Add member\". Enter the user's name or email address, depending on whether they already have a Grafana account or not. You can also assign them an organization role such as Admin, Editor, or Viewer.\n\nAlternatively, you can navigate directly to **Administration > Users and access > Teams**, click on the team where you want to add members, and then click **+ Add member**. Search for and select a user, choose their role, and then click **Save**.",
+		"rating": "5/5",
 		"sources": [
 			"grafana/docs/sources/administration/team-management/configure-grafana-teams.md",
 			"grafana/docs/sources/administration/user-management/manage-org-users/index.md",
@@ -195,6 +211,7 @@
 		"query": "How do I install a panel plugin?",
 		"response_time_sec": 21.072927236557007,
 		"response": "You can install a new visualizations to your dashboard with panel plugins by clicking **Administration > Plugins and data > Plugins** in the side navigation menu, browsing and finding a plugin, then clicking the plugin's logo followed by **Install**.",
+		"rating": "5/5",
 		"sources": [
 			"grafana/docs/sources/administration/plugin-management/plugin-types.md",
 			"grafana/docs/sources/whatsnew/whats-new-in-v8-0.md",
@@ -207,6 +224,7 @@
 		"query": "Can Grafana connect to Elasticsearch?",
 		"response_time_sec": 15.330618858337402,
 		"response": "Yes.",
+		"rating": "5/5",
 		"sources": [
 			"grafana/docs/sources/datasources/elasticsearch/troubleshooting/index.md",
 			"grafana/docs/sources/datasources/postgres/troubleshooting/index.md",
@@ -219,6 +237,7 @@
 		"query": "How do I export a dashboard?",
 		"response_time_sec": 29.746381521224976,
 		"response": "You can export a dashboard by clicking **Dashboards** in the main menu, opening the dashboard you want to export, and then selecting an option from the **Export** drop-down list in the toolbar. You have three options: Export as PDF, Export as code, or Export as image. Each of these options will guide you through the process for exporting your dashboard in its current state.",
+		"rating": "5/5",
 		"sources": [
 			"grafana/docs/sources/visualizations/dashboards/share-dashboards-panels/_index.md",
 			"grafana/docs/sources/visualizations/dashboards/share-dashboards-panels/_index.md",
@@ -231,6 +250,7 @@
 		"query": "What happens if Grafana cannot find a data source?",
 		"response_time_sec": 15.290173768997192,
 		"response": "The Grafana instance receives an invalid data source info.",
+		"rating": "i mean.....ja?; 2/5",
 		"sources": [
 			"grafana/docs/sources/datasources/google-cloud-monitoring/troubleshooting/index.md",
 			"grafana/docs/sources/datasources/influxdb/troubleshooting/index.md",
