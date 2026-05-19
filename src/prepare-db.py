@@ -14,7 +14,7 @@ Settings.embed_model = OllamaEmbedding(
 Settings.llm = Ollama(
     model="llama3.1:8b",
     base_url="http://localhost:11434",
-    request_timeout=120.0,
+    request_timeout=600.0,
 )
 
 documents = SimpleDirectoryReader(
@@ -26,12 +26,11 @@ documents = SimpleDirectoryReader(
 
 pipeline = IngestionPipeline(
     transformations=[
-        MarkdownElementNodeParser(),
-        SentenceSplitter(chunk_size=512, chunk_overlap=64),
+        MarkdownElementNodeParser()
     ]
 )
 
-nodes = pipeline.run(documents=documents)
+nodes = pipeline.run(documents=documents, num_workers=1)
 
 chroma_client = chromadb.PersistentClient(path="./chroma_db")
 collection = chroma_client.get_or_create_collection("grafana")
