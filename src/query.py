@@ -38,7 +38,7 @@ while True:
     print(f"\n{response}\n")
 
     # Show which source files were used
-    sources = {n.metadata.get("file_path", "unknown") for n in response.source_nodes}
+    sources = {n.metadata.get("title", "unknown") for n in response.source_nodes}
     print("Sources:")
     for s in sorted(sources):
         print(f"  {s}")
