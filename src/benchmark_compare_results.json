@@ -1,0 +1,382 @@
+[
+  {
+    "query": "What is Grafana used for?",
+    "rag": {
+      "response_time_sec": 2.695,
+      "response": "Grafana is a platform used to build dashboards and visualize data from various sources. It provides tools for creating, managing, and sharing interactive and dynamic dashboards that can be customized to meet specific needs and requirements.",
+      "sources": [
+        "Configure the Knowledge Graph stack using Terraform",
+        "Get started with Grafana and MS SQL Server",
+        "Query and Resource Caching HTTP API",
+        "Migrate from Grafana OSS/Enterprise to Grafana Cloud manually",
+        "Query and Resource Caching HTTP API"
+      ]
+    },
+    "direct_ollama": {
+      "response_time_sec": 1.017,
+      "response": "Grafana is a tool primarily used for monitoring and visualizing metrics and data from various sources (e.g., databases, APIs, etc.) in real-time. It allows users to create dashboards with customizable panels that display graphs, charts, tables, and other formats of data. This enables organizations to monitor their systems, services, and applications more effectively.",
+      "sources": []
+    }
+  },
+  {
+    "query": "How do I create a new dashboard in Grafana?",
+    "rag": {
+      "response_time_sec": 2.832,
+      "response": "To create a new dashboard in Grafana, follow these steps:\n\n1. Navigate to the dashboard you want to update.\n2. Click **Edit**.\n3. Add a descriptive title for the dashboard or have Grafana create one using generative AI features.\n4. Click **Save**.\n\nAlternatively, click **Back to dashboard** if you want to see your changes applied to the dashboard first. Then click **Save** when you're ready.\n\nYou can also refer to the [Build your first dashboard](https://grafana.com/docs/grafana/<GRAFANA_VERSION>/dashboards/build-dashboards/create-dashboard/) topic for a step-by-step guide on getting started with Grafana by adding a preconfigured dashboard.",
+      "sources": [
+        "Manage dashboards with GitOps using ArgoCD",
+        "Work with provisioned dashboards in Git Sync",
+        "Create dashboards",
+        "JSON model",
+        "Build your first dashboard"
+      ]
+    },
+    "direct_ollama": {
+      "response_time_sec": 1.132,
+      "response": "To create a new dashboard in Grafana:\n\n1. Log in to your Grafana instance.\n2. Click on the \"+\" icon at the top right of the navigation menu (next to \"Dashboards\").\n3. Select \"Create Dashboard\".\n4. Choose a name for your dashboard and click \"Save\".\n\nAlternatively, you can also navigate directly to [your grafana url]/d/dashboard/new (e.g., http://localhost:3000/d/dashboard/new) in your web browser.",
+      "sources": []
+    }
+  },
+  {
+    "query": "Explain how to set up alerts in Grafana.",
+    "rag": {
+      "response_time_sec": 3.787,
+      "response": "To set up alerts in Grafana, you need to create a contact point first. This can be done by navigating to **Alerting** > **Contact points**, clicking on **+ New contact point**, and choosing the type of notification you want to send (e.g., Webhook). Then, select the contact point from the drop-down menu in the alert rule configuration.\n\nNext, create an alert rule. Go to **Alerts & IRM** > **Alerting** > **Alert rules** and click on **+ New alert rule**. Enter a name for your alert rule, define the query and alert condition using the default options or a custom expression, and select the contact point you created earlier.\n\nConfigure labels and notifications by scrolling down to the **Configure labels and notifications** section in the alert rule configuration. Under Notifications, click on **Select contact point** and choose the previously created contact point. Finally, click **Save rule and exit** to save your changes.",
+      "sources": [
+        "Get started with Grafana Alerting - Create and receive your first alert",
+        "Get started with Grafana Alerting - Create and receive your first alert",
+        "Get started with Grafana Alerting - Create and receive your first alert",
+        "Configure Slack for Alerting",
+        "Get started with Grafana Alerting - Create and receive your first alert"
+      ]
+    },
+    "direct_ollama": {
+      "response_time_sec": 3.62,
+      "response": "Here's a clear and concise explanation on setting up alerts in Grafana:\n\n**Step 1: Go to the Alerts page**\n\n* Log in to your Grafana instance\n* Click on the \"Alerts\" tab in the top navigation menu\n* This will take you to the Alerts dashboard\n\n**Step 2: Create a new alert**\n\n* Click the \"+\" button at the top right corner of the page\n* Fill in the following information:\n\t+ **Name**: Give your alert a descriptive name\n\t+ **Description**: Add a brief description of the alert (optional)\n\t+ **Alert condition**: Choose the type of alert you want to create (e.g. threshold, function, etc.)\n\t+ **Query**: Select the metric or data source for which you want to set up an alert\n\n**Step 3: Define the alert condition**\n\n* Based on your query selection, define the alert condition:\n\t+ Specify the condition that will trigger the alert (e.g. when a value exceeds a certain threshold)\n\t+ Choose the time period over which the condition is evaluated\n\t+ Optionally set up multiple conditions for more complex alerts\n\n**Step 4: Configure notification settings**\n\n* Choose how you want to receive notifications:\n\t+ Email: enter email addresses or create an email template\n\t+ PagerDuty, HipChat, Slack, etc.: integrate with other services using API keys\n\t+ HTTP requests: send custom HTTP requests to external services\n\n**Step 5: Save and test the alert**\n\n* Click \"Save\" to save your new alert configuration\n* Go to the Alerts page to verify that your alert is working as expected\n\nThat's it! With these steps, you should be able to set up alerts in Grafana.",
+      "sources": []
+    }
+  },
+  {
+    "query": "What data sources does Grafana support?",
+    "rag": {
+      "response_time_sec": 1.622,
+      "response": "Grafana supports a variety of data sources that allow users to connect and visualize their data. These include Graphite, MySQL, Jaeger, SurrealDB, and others. Each data source has its own unique configuration options and features, allowing users to tailor their Grafana setup to their specific needs.",
+      "sources": [
+        "Configure the Graphite data source",
+        "Configure the MySQL data source",
+        "Label Based Access Control (LBAC) for data sources",
+        "Configure the Jaeger data source",
+        "unknown"
+      ]
+    },
+    "direct_ollama": {
+      "response_time_sec": 0.99,
+      "response": "Grafana supports over 80+ data sources, including:\n\n* Prometheus\n* InfluxDB\n* Graphite\n* Elasticsearch\n* PostgreSQL\n* MySQL\n* SQL Server\n* Oracle\n* MongoDB\n* Cassandra\n* Apache Kafka\n* Amazon CloudWatch\n* Google Cloud Monitoring\n* Azure Monitor\n\nThis is not an exhaustive list and Grafana's data source support continues to grow.",
+      "sources": []
+    }
+  },
+  {
+    "query": "How can I share a dashboard with others in Grafana?",
+    "rag": {
+      "response_time_sec": 4.798,
+      "response": "To share a dashboard with others in Grafana, follow these steps:\n\n1. Click on the dashboard you want to share and then click on the Share drop-down list in the top-right corner of the page.\n2. Select \"Share externally\" from the drop-down menu. This will open the Share externally drawer.\n3. In the Link access drop-down list, select how you want to share the link:\n\t* Anyone with the link: The entire dashboard will be public and anyone with the link can access it.\n\t* Only specific people: You can invite specific users by entering their email addresses in the Invite field. They will receive a one-time use link that's valid for 1 hour, and once used, they have access to the shared dashboard for 30 days.\n4. Click the checkbox confirming that you understand the sharing settings.\n5. Click Accept.\n6. (Optional) Set the following options:\n\t+ Enable time range: Allow people accessing the link to change the time range.\n\t+ Display annotations: Allow people accessing the link to view the dashboard annotations.\n7. Click the X at the top-right corner to close the share drawer.\n\nAlternatively, you can also schedule a report or publish a snapshot of the dashboard.",
+      "sources": [
+        "Externally shared dashboards",
+        "Externally shared dashboards",
+        "Externally shared dashboards",
+        "Share dashboards and panels",
+        "Externally shared dashboards"
+      ]
+    },
+    "direct_ollama": {
+      "response_time_sec": 0.889,
+      "response": "You can share a dashboard in Grafana by clicking on the \"Share\" button (looks like two people or a plus sign) at the top right corner of the dashboard page, then entering the email addresses or usernames of the users you want to share it with. You can also add a message and set permissions (e.g., view-only or edit).",
+      "sources": []
+    }
+  },
+  {
+    "query": "Describe the process to install plugins in Grafana.",
+    "rag": {
+      "response_time_sec": 5.063,
+      "response": "To install plugins in Grafana, you can follow these general steps:\n\n1. **Create a service account**: First, create a service account on your Grafana instance. This will provide Grizzly with the necessary access token for authentication.\n\n2. **Fetch plugin information from Grafana API**: Use the `https://grafana.com/api/plugins/<plugin-name>/versions` endpoint to fetch the list of available versions for each plugin. Note down the version ID and name for each plugin.\n\n3. **Construct an HTTP POST request**: Construct an HTTP POST request with the following parameters:\n\n   - **Instance slug**: Replace `<STACK-SLUG>` with your Grafana instance's slug.\n   - **Authorization header**: Use the service account token as the `Authorization` header, specifying the authentication type as `Bearer`.\n   - **Content-Type**: Set this to `application/json`.\n   - **Plugin information**: Provide a JSON payload with the plugin name and version.\n\n4. **Send the request**: Send the constructed POST request to `https://grafana.com/api/instances/<STACK-SLUG>/plugins`.\n\n5. **Verify the response**: Verify that the plugin has been successfully installed by checking the instance's plugins list.\n\nAlternatively, you can use the Grafana CLI or download and install the plugin manually as a ZIP file.\n\nIn addition, if you're using Grafana Cloud, you can also use the Terraform provider to automate the installation of plugins. This involves creating a Terraform configuration that specifies the plugin to be installed, along with its version and other relevant details.",
+      "sources": [
+        "Install plugins in Grafana Cloud using Terraform",
+        "Configure Grafana",
+        "Install a plugin",
+        "Migrate from Grafana OSS/Enterprise to Grafana Cloud manually",
+        "Install a plugin"
+      ]
+    },
+    "direct_ollama": {
+      "response_time_sec": 1.705,
+      "response": "To install plugins in Grafana:\n\n1. Go to the Grafana Plugins page (https://grafana.com/plugins).\n2. Search for the plugin you want to install.\n3. Click on the \"Install\" button next to the desired plugin.\n4. You will be redirected to the Grafana instance login page, where you need to log in with your admin credentials.\n5. After logging in, the plugin will be installed and enabled.\n\nAlternatively, plugins can also be installed using the CLI (Command Line Interface) tool `grafana-cli`:\n\n1. Run `grafana-cli plugins install <plugin-name>`.\n2. The plugin will be downloaded and installed.\n\nNote: For both methods, you need to have Grafana running with admin access to perform plugin installations.",
+      "sources": []
+    }
+  },
+  {
+    "query": "How do I manage user permissions in Grafana?",
+    "rag": {
+      "response_time_sec": 3.007,
+      "response": "You can assign a user one of three types of permission sets:\n\n- **Grafana server administrator permissions** to manage Grafana server-wide settings and resources.\n- **Organization permissions** to manage access to dashboards, alerts, plugins, teams, playlists, and other resources for an entire organization. The available roles are Viewer, Editor, and Admin.\n- **Dashboard and folder permissions** to manage access to dashboards and folders.\n\nTo perform these actions, you can use the Grafana UI or the HTTP API. For example, you can use the `PUT /api/admin/users/2/permissions` endpoint to update user permissions via the HTTP API.\n\nAdditionally, you can configure fine-grained access control (RBAC) in Grafana Enterprise or Cloud to grant users access to read and write permissions to specific Grafana resources.",
+      "sources": [
+        "Manage users",
+        "Roles and permissions",
+        "Admin HTTP API ",
+        "Git Sync permissions and access control",
+        "Git Sync permissions and access control"
+      ]
+    },
+    "direct_ollama": {
+      "response_time_sec": 1.443,
+      "response": "To manage user permissions in Grafana:\n\n1. Log in to your Grafana instance as an admin.\n2. Click on the gear icon next to \"Signed in as\" at the top right of the page and select \"Org Management\".\n3. From there, you can create new organizations, teams, and users, and assign roles and permissions to them.\n\nYou can also manage user permissions directly by going to **Settings** > **Users** or using the Grafana CLI tool.\n\nFor more detailed information, refer to the official Grafana documentation on [User Management](https://docs.grafana.com/guides/user-management/).",
+      "sources": []
+    }
+  },
+  {
+    "query": "What is the default port for Grafana?",
+    "rag": {
+      "response_time_sec": 2.082,
+      "response": "3000.",
+      "sources": [
+        "Install Grafana on Debian or Ubuntu",
+        "Install Grafana on RHEL or Fedora",
+        "Configure Grafana",
+        "Install Grafana on Windows",
+        "Migrate from Grafana OSS/Enterprise to Grafana Cloud manually"
+      ]
+    },
+    "direct_ollama": {
+      "response_time_sec": 0.323,
+      "response": "The default port for Grafana is 3000.",
+      "sources": []
+    }
+  },
+  {
+    "query": "How to upgrade Grafana to the latest version?",
+    "rag": {
+      "response_time_sec": 5.214,
+      "response": "To determine the best course of action for upgrading to the latest version of Grafana, you should first understand which type of release it is. \n\nIf it's a major release (e.g., 12.0.0), it will contain significant architectural improvements and modernizations, possibly breaking changes requiring migration steps. Major releases are released once per year.\n\nFor minor releases (e.g., 12.3.0, 12.4.0) and patch releases (e.g., 12.3.1, 12.3.2), you should check the support levels by version for your Grafana instance. \n\nMinor releases contain new features and enhancements, bug fixes, and security patches. They're released every other month.\n\nPatch releases only contain bug fixes and security patches, with no new features. These are released monthly.\n\nTo find the latest minor release of your major version, you can check the available versions on the [downloads page](https://grafana.com/grafana/download). \n\nIf there is a critical feature degradation in the latest version, you should assess whether this affects your instance's functionality and security. Critical feature degradations usually involve universally unavailable functionalities or significant impact on customers.\n\nGiven these considerations, here are some general steps to upgrade:\n\n1.  **Check Support Levels**: Determine which support level applies to your Grafana instance (Full Support, Patch Support, Not Supported).\n2.  **Review New Features and Changes**: If it's a major release, review the breaking changes and migration steps.\n3.  **Evaluate Critical Feature Degradations**: Assess if any critical feature degradations affect your functionality or security.\n4.  **Plan Your Upgrade Path**: Choose an upgrade strategy based on your needs (e.g., rolling updates, downtime for full upgrades).\n5.  **Perform the Upgrade**: Follow the instructions in the documentation for your specific Grafana version to perform the upgrade.\n\nIt's recommended to follow the official Grafana documentation and community guidelines for upgrading your instance.",
+      "sources": [
+        "Upgrade to Grafana v10.4",
+        "Upgrade to Grafana v13.0",
+        "Strategies for upgrading your self-managed Grafana instance",
+        "Upgrade to Grafana v11.5",
+        "Upgrade to Grafana v11.4"
+      ]
+    },
+    "direct_ollama": {
+      "response_time_sec": 1.833,
+      "response": "To upgrade Grafana to the latest version:\n\n1. Back up your current configuration.\n2. Run `sudo grafana-cli backup` (if using the official package) or stop and disable any external services that may be interfering with the update.\n3. Install the new version of Grafana from the official repository:\n\t* On Ubuntu/Debian: `sudo apt-get update && sudo apt-get install grafana`\n\t* On Red Hat/CentOS: `sudo yum update grafana`\n4. After installing, you can check the new version using `grafana-cli --version`.\n5. Finally, restart Grafana to apply the changes.\n\n**Note**: Before making any updates, ensure that there are no pending migrations in your database by running `grafana-cli db upgrade --check` or checking for any errors on startup after updating.",
+      "sources": []
+    }
+  },
+  {
+    "query": "Where are Grafana logs stored?",
+    "rag": {
+      "response_time_sec": 1.589,
+      "response": "Logs can be stored in a file-based system, sent to a Loki-compatible endpoint through HTTP or gRPC, or written directly to the Grafana default logger.",
+      "sources": [
+        "Logs in Explore",
+        "Audit a Grafana instance",
+        "Audit a Grafana instance",
+        "Logs in Explore",
+        "Audit a Grafana instance"
+      ]
+    },
+    "direct_ollama": {
+      "response_time_sec": 1.295,
+      "response": "The storage location of Grafana logs depends on the configuration. By default, Grafana stores logs in its own database (default: PostgreSQL) if it's configured as a standalone instance or in the external logging system specified by the user (e.g., Elasticsearch, Loki, etc.) when running with a multi-tenancy setup or deployed behind a reverse proxy.\n\nHowever, for most users and setups, Grafana uses the internal logs to store its own activity logs. These are usually stored in a database like PostgreSQL, which is the default backend database for Grafana.",
+      "sources": []
+    }
+  },
+  {
+    "query": "A team wants to migrate Grafana to a new server, keep existing dashboards, preserve user access, and avoid breaking plugins. What should they back up and reconfigure?",
+    "rag": {
+      "response_time_sec": 2.813,
+      "response": "They should back up their Grafana database and ensure all existing users have corresponding accounts in the identity provider (IDP) before migrating. \n\nThis will help preserve user settings, dashboards, and permissions during the migration process.\n\nAdditionally, since they want to avoid breaking plugins, they should:\n\n1. Check which plugins are unsigned or private and find alternatives from the catalog.\n2. If necessary, deprecate certain plugin functionality in their self-managed instance.\n\nBy doing so, they can ensure a smooth transition to the new server without losing any critical data or features.",
+      "sources": [
+        "Migrate from Grafana OSS/Enterprise to Grafana Cloud using the Grafana Cloud Migration Assistant",
+        "Breaking changes in Grafana v10.0",
+        "Migrate from Grafana OSS/Enterprise to Grafana Cloud using the Grafana Cloud Migration Assistant",
+        "Manage users and teams with SCIM",
+        "Migrate to the new APIs"
+      ]
+    },
+    "direct_ollama": {
+      "response_time_sec": 1.707,
+      "response": "The team should back up the following:\n\n1. **Grafana database**: This includes the dashboard definitions, permissions, and other configurations.\n2. **Plugins**: Ensure that all plugins are updated to the latest version compatible with the new server.\n\nReconfigure:\n\n1. **Update Grafana instance configuration**: Update the `grafana.ini` file to point to the new database connection and any other necessary settings.\n2. **Update user permissions**: Re-sync user roles and permissions on the new server to match the old one.\n3. **Update plugin settings**: Re-apply any custom plugin settings, such as API keys or credentials.\n\nBy following these steps, the team can ensure that existing dashboards are preserved, user access is maintained, and plugins continue to function correctly.",
+      "sources": []
+    }
+  },
+  {
+    "query": "An administrator upgraded Grafana and now alerts are not firing, some dashboards show missing data sources, and users report access issues. What should be checked first and in what order?",
+    "rag": {
+      "response_time_sec": 3.379,
+      "response": "First, check the Alertmanager logs for any errors or warnings that might indicate why the alerts are not firing.\n\nNext, verify that the Prometheus/Mimir server or other metrics database is collecting and storing metrics as expected. This can be done by checking the metrics path (e.g., /metrics) of your Alertmanager instance using a tool like curl or by reviewing the logs for any errors related to metric collection.\n\nIf the metrics are being collected, then check the alert rule queries in Grafana to ensure they are correctly configured and running successfully. This can be done by verifying that the query returns expected results in Explore before creating an alert.\n\nFinally, review Grafana's access control settings to verify that users have appropriate permissions to view dashboards and access data sources.",
+      "sources": [
+        "Meta monitoring",
+        "Google Cloud Monitoring alerting",
+        "No Data and Error states",
+        "OpenTSDB alerting",
+        "unknown"
+      ]
+    },
+    "direct_ollama": {
+      "response_time_sec": 1.682,
+      "response": "To troubleshoot the issue, I would recommend checking the following steps in this order:\n\n1. **Alerts not firing**: Check if there are any error messages in Grafana's logs (e.g., `grafana.log` file) related to alerting.\n2. **Missing data sources on dashboards**: Verify that the data sources are still connected and configured correctly in Grafana. Check for any changes made during the upgrade process.\n3. **Access issues**: Review Grafana's authentication settings, user permissions, and roles to ensure they have not been affected by the upgrade.\n\nThis order makes sense because alerting relies on the underlying infrastructure (data sources, databases, etc.), which could be impacted if dashboards are showing missing data sources or access is restricted.",
+      "sources": []
+    }
+  },
+  {
+    "query": "How would you set up Grafana for a team where developers can edit dashboards, managers can only view them, and alert notifications must still reach both groups when needed?",
+    "rag": {
+      "response_time_sec": 4.866,
+      "response": "To set up Grafana with the desired access control and notification behavior, follow these steps:\n\n1. **Configure Role-Based Access Control (RBAC)**:\n\t* Create a role for developers that includes permissions to edit dashboards.\n\t* Create a role for managers that includes only view-only permissions for dashboards.\n\t* Assign these roles to team members accordingly.\n2. **Manage Dashboard Permissions**:\n\t* To prevent managers from accidentally editing dashboards, make sure they are not assigned the \"Editor\" or \"Admin\" roles on individual dashboard levels.\n\t* Use Grafana's built-in permission system to control access to specific dashboards and folders. You can set up permissions for each role at the folder level or even down to individual dashboard levels.\n3. **Configure Alert Notifications**:\n\t* Set up a notification policy that sends notifications to both developers and managers when needed.\n\t* Use Grafana's built-in notification system, which supports multiple notification channels, such as email, Slack, and more.\n\t* To group alerts for both roles in the same notification, use a notification policy with a custom label or a shared group ID.\n\nTo ensure that alert notifications reach both developers and managers when needed, consider the following:\n\n1. **Group Wait**: Set the Group Wait timer to a short duration (e.g., 10-30 seconds) to allow for initial notification of new alerts.\n2. **Repeat Interval**: Set the Repeat Interval to a reasonable time frame (e.g., every minute or few minutes) to send notifications if the group has not changed since the last notification.\n\nBy following these steps, you can effectively set up Grafana with RBAC and manage alert notifications for both developers and managers, ensuring that everyone receives necessary updates while maintaining access controls.",
+      "sources": [
+        "Manage dashboards with GitOps using ArgoCD",
+        "Introduction to Git Sync",
+        "unknown",
+        "Group alert notifications",
+        "Dashboard controls"
+      ]
+    },
+    "direct_ollama": {
+      "response_time_sec": 2.847,
+      "response": "To set up Grafana for the specified scenario, follow these steps:\n\n1.  **Create roles**:\n    *   Create two separate user roles: `developer` and `manager`.\n    *   Assign permissions to each role using the built-in Grafana role-based access control (RBAC) feature.\n\n2.  **Configure dashboard permissions**:\n    *   Set up individual dashboards to allow only the designated role (`developer` or `manager`) to edit them.\n    *   Ensure that both roles can view all dashboards, regardless of their permission level for editing.\n\n3.  **Alert notifications**:\n    *   Configure Grafana to send alert notifications to a channel accessible by both groups (e.g., a shared Slack channel or an email group).\n    *   In the notification settings, select the channel where alerts should be sent and ensure that both roles have permission to receive notifications.\n\n4.  **Additional considerations**:\n    *   To restrict manager's access to certain dashboards, use Grafana's built-in dashboard permissions feature.\n    *   If managers need to edit specific dashboards occasionally, create a separate `manager-edit` role with the necessary permissions for those dashboards only.\n    *   Monitor and adjust permissions as needed based on team dynamics and changing requirements.\n\nBy following these steps, you can set up Grafana to meet your specific requirements.",
+      "sources": []
+    }
+  },
+  {
+    "query": "If a dashboard must be shared externally but the underlying data source and editing permissions should remain restricted, what Grafana features or settings are relevant?",
+    "rag": {
+      "response_time_sec": 4.482,
+      "response": "To share a dashboard externally while keeping the underlying data source and editing permissions restricted, consider using the following Grafana features:\n\n1. Assigning specific permissions to the dashboard: You can restrict access to the dashboard by assigning users or teams specific roles (e.g., \"View\" or \"Edit\") that only allow them to view or modify certain aspects of the dashboard.\n2. Data source permissions: Ensure that data source permissions are set up to restrict query permissions to specific users, service accounts, or teams. This will prevent unauthorized access to sensitive data sources.\n3. Role-based Access Control (RBAC): Implement RBAC to manage user roles and permissions at a more granular level. This allows you to define custom roles with specific permissions, ensuring that only authorized individuals can access the dashboard and its underlying resources.\n4. Custom branding: If you're a Grafana Enterprise customer, consider using custom branding to change the appearance of your shared dashboards. This can help maintain a consistent brand image while keeping sensitive information secure.\n\nBy combining these features, you can share your dashboard externally while maintaining control over access to the underlying data source and editing permissions.",
+      "sources": [
+        "Externally shared dashboards",
+        "Externally shared dashboards",
+        "Externally shared dashboards",
+        "Roles and permissions",
+        "Externally shared dashboards"
+      ]
+    },
+    "direct_ollama": {
+      "response_time_sec": 2.173,
+      "response": "To share a Grafana dashboard externally while keeping the underlying data source and editing permissions restricted, consider the following features:\n\n1. **Read-only links**: Share the link to the read-only version of the dashboard using the `?readonly=true` parameter.\n2. **Variables**: Use variables to allow users to customize the visualization without granting them access to edit the underlying data source or permissions. This way, users can interact with the dashboard but cannot modify it.\n3. **Secure JSON data sources**: Ensure the Grafana instance is configured to use secure JSON data sources (e.g., encrypted URLs) when connecting to external data sources. This will prevent unauthorized access to sensitive data.\n4. **Role-based Access Control (RBAC)**: Configure RBAC in Grafana to restrict editing permissions for users with read-only roles, while allowing administrators or other authorized personnel to edit the dashboard as needed.\n\nBy utilizing these features and settings, you can share your Grafana dashboard externally while maintaining control over sensitive data and permissions.",
+      "sources": []
+    }
+  },
+  {
+    "query": "What steps would be involved in setting up a completely new Grafana instance with a Prometheus data source, alerting, user access control, and a shareable dashboard?",
+    "rag": {
+      "response_time_sec": 5.429,
+      "response": "To set up a completely new Grafana instance with a Prometheus data source, alerting, user access control, and a shareable dashboard, follow these steps:\n\n1. Install Grafana on your preferred operating system by referring to the [Install Grafana](https://grafana.com/docs/grafana/latest/setup-grafana/installation/) documentation.\n2. Configure Grafana's settings, such as enabling authentication and setting up user access control by following the [Authentication](https://grafana.com/docs/grafana/latest/setup-grafana/configure-access/configure-authentication/) and [User permissions and roles](https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/) documentation.\n3. Set up a Prometheus data source in Grafana by clicking the \"Add data source\" button, selecting \"Prometheus,\" and configuring the connection settings according to your Prometheus instance's setup.\n4. Create a new dashboard by clicking the \"New dashboard\" button and adding panels using visualizations such as line charts or tables. You can use pre-configured dashboards from Grafana Labs' GitHub repository or create one from scratch.\n5. To enable alerting, navigate to the Alerting section in the sidebar, click on \"Contact points,\" then \"+ New contact point.\" Choose \"Webhook\" as the integration and configure your webhook endpoint according to your needs. Set up an alert rule by creating a new alert rule and linking it to this new integration.\n6. To make the dashboard shareable, navigate to the dashboard settings (gear icon in the top right corner), click on \"Sharing,\" and select the desired sharing options. You can choose from public or private sharing, as well as specify the permissions for shared users.\n\nAdditionally, you may want to explore other features such as data exploration, plugins, and integrations offered by Grafana to further enhance your dashboard's functionality.\n\nPlease note that these steps are based on the provided context information and do not require prior knowledge of Grafana or its configuration.",
+      "sources": [
+        "Manage dashboards with GitOps using ArgoCD",
+        "Get started with Grafana Alerting - Create and receive your first alert",
+        "Get started with Grafana and MS SQL Server",
+        "Build your first dashboard",
+        "Build your first dashboard"
+      ]
+    },
+    "direct_ollama": {
+      "response_time_sec": 3.38,
+      "response": "Here are the clear and concise steps to set up a new Grafana instance with the requested features:\n\n**Step 1: Install Grafana**\n\n* Download and install Grafana from the official website.\n* Follow the installation instructions for your operating system (e.g. Docker, RPM/DEB package, or binary).\n\n**Step 2: Configure Prometheus Data Source**\n\n* Create a new data source in Grafana by going to Settings > Data Sources > Add data source\n* Select \"Prometheus\" as the data source type and fill in the URL of your Prometheus instance.\n\n**Step 3: Set up Alerting**\n\n* Go to Settings > General and enable alerting\n* Configure the alerting settings, such as notification channels (e.g. email, Slack) and threshold values\n\n**Step 4: Configure User Access Control**\n\n* Create a new user in Grafana by going to Users > Add user\n* Assign roles and permissions to the user as needed\n\n**Step 5: Create a Shareable Dashboard**\n\n* Go to Dashboards > New dashboard and create a new dashboard with the desired metrics and visualizations\n* Make sure to save the dashboard with a shareable URL (e.g. https://your-grafana-instance.com/d/my-dashboard)\n\nAdditional steps:\n\n* Configure any other settings as needed, such as authentication (e.g. LDAP), caching, or database storage.\n* Test your setup by verifying that Prometheus data is being displayed in Grafana and that alerts are working correctly.\n\nPlease note that this is a general outline and may require additional configuration depending on your specific use case and infrastructure.",
+      "sources": []
+    }
+  },
+  {
+    "query": "What files and directories are important when troubleshooting Grafana startup problems, especially when checking logs and configuration?",
+    "rag": {
+      "response_time_sec": 3.805,
+      "response": "When troubleshooting Grafana startup problems, especially when checking logs and configuration, you should pay attention to the following files and directories:\n\n1. Log files: `/var/log/grafana/grafana.log` (or your configured log location)\n2. Configuration file: This is typically located in one of the following directories:\n\t* Default location for a binary or source installation: `$WORKING_DIR/defaults.ini` and `$WORKING_DIR/custom.ini`\n\t* Default location for a `deb` or `rpm` package: `/etc/grafana/grafana.ini`\n3. Plugin data directory: This is typically located in one of the following directories:\n\t* Default location for plugins in a binary or source installation: `$WORKING_DIR/data/plugins`\n\t* Default location for plugins in a `deb` or `rpm` package: `/var/lib/grafana/plugins`\n\nThese files and directories contain important information that can help you diagnose startup issues, such as configuration settings, plugin data, and log messages.",
+      "sources": [
+        "Use configuration files to provision alerting resources",
+        "Provision Grafana",
+        "Get started with Grafana Alerting - Route alerts using dynamic labels",
+        "Back up Grafana",
+        "Troubleshoot Pyroscope data source issues"
+      ]
+    },
+    "direct_ollama": {
+      "response_time_sec": 2.553,
+      "response": "When troubleshooting Grafana startup problems, the following files and directories are important to check:\n\n1. **Grafana log files**:\n\t* `/var/log/grafana/grafana.log` (or `$GRAFANA_LOGS_DIR/grafana.log`)\n\t* `/var/log/grafana/debug.log` (or `$GRAFANA_LOGS_DIR/debug.log`)\n2. **Grafana configuration file**:\n\t* `/etc/grafana/grafana.ini` (or `$GRAFANA_CONFIG_FILE/grafana.ini`)\n3. **MySQL/MongoDB database credentials file**:\n\t* `/etc/grafana/database.yml` (or `$GRAFANA_DB_FILE/database.yml`)\n4. **System logs**:\n\t* `/var/log/syslog`\n\t* `/var/log/messages`\n5. **Directory where Grafana is installed and running from**:\n\t* `/usr/share/grafana` (on Linux) or `C:\\Program Files\\GrafanaLabs\\grafana-server` (on Windows)\n\nThese files contain important information about the startup process, configuration settings, database connections, and error messages that can help diagnose issues with Grafana.",
+      "sources": []
+    }
+  },
+  {
+    "query": "How do I troubleshoot a situation where alert rules exist but notifications are not being sent in Grafana?",
+    "rag": {
+      "response_time_sec": 4.781,
+      "response": "To troubleshoot a situation where alert rules exist but notifications are not being sent in Grafana, you can start by checking the following:\n\nFirst, ensure that your alert rule is correctly configured and has triggers set up for when an alert should be fired. You may want to review the documentation on [Configuring notification policies](ref:configure-notification-policies) to make sure that you are using the correct settings.\n\nNext, verify that the Alertmanager is functioning properly by checking its logs for any errors or issues. If you have multiple Alertmanagers set up, ensure that you are choosing the correct one when configuring your notification policies.\n\nIt's also essential to check if there are any silences or mute timings in place that could be blocking notifications. Review your [silence](ref:configure-silences) and [mute timing](ref:configure-mute-timings) settings to confirm that they are not impacting the alerts.\n\nAnother step is to inspect the contact points and notification resources associated with each Alertmanager, as these can also cause issues if misconfigured. Check your [contact points](ref:configure-contact-points) and ensure that the templates, policies, silences, and mute timings for each Alertmanager are correctly configured.\n\nIf none of these checks resolve the issue, it might be helpful to review the alerting engine's logs for any clues about what could be causing the problem. Additionally, verify that your data source is providing the expected data and that there aren't any issues with data retrieval or processing that could impact alert generation.\n\nLastly, if you're still experiencing difficulties, consider testing with a simple scenario using TestData to isolate the issue. This can help determine if the problem lies within the alert rule configuration or elsewhere in the Grafana Alerting system.",
+      "sources": [
+        "Handle connectivity errors in alerts",
+        "View active notifications",
+        "TestData alerting",
+        "Configure notifications",
+        "TestData alerting"
+      ]
+    },
+    "direct_ollama": {
+      "response_time_sec": 1.926,
+      "response": "To troubleshoot the issue of alert rules existing but notifications not being sent in Grafana:\n\n1. **Check Alert Status**: Ensure that alerts are being triggered by checking the Alerting panel in Grafana, or querying the Prometheus database directly.\n2. **Verify Notification Settings**: Review notification settings for each alert rule to ensure they're properly configured and enabled.\n3. **Notification Channel Configuration**: Check if the chosen notification channel (e.g., email, slack, etc.) is correctly set up and functional.\n4. **Alert Rule Conditions**: Verify that alert rules are firing due to specific conditions being met (e.g., threshold exceeded, metric anomaly).\n5. **Grafana Logs**: Inspect Grafana logs for any errors related to notification processing.\n\nIf none of these steps resolve the issue, it's possible that there is a configuration or infrastructure problem preventing notifications from being sent.",
+      "sources": []
+    }
+  },
+  {
+    "query": "How can I configure Grafana so that only certain users can access a specific dashboard while others can still use the rest of the system?",
+    "rag": {
+      "response_time_sec": 4.154,
+      "response": "To extend a viewer's ability to edit and save dashboard changes or limit an editor's permission to modify a dashboard, you can assign permissions to dashboards and folders. For example, you might want a certain viewer to be able to edit a dashboard while that user can only see all dashboards.\n\nYou can specify the following permissions to dashboards and folders:\n\n*   **Admin**: Can create, edit, or delete a dashboard. Can edit or delete a folder, and create dashboards and subfolders in a folder.\n*   **Edit**: Can create, edit, or delete a dashboard. Can edit or delete a folder, and create dashboards and subfolders in a folder. Editors _cannot_ change folder or dashboard permissions.\n*   **View**: Can only view dashboards and folders.\n\nWhen assigning permissions to dashboards and folders, the dashboard permissions you specify override the organization permissions you assign to the user for the selected entity.\n\nThis way, you can grant specific users permission to access a particular dashboard while others can still use the rest of the system.",
+      "sources": [
+        "Provision Grafana",
+        "Configure Grafana Teams",
+        "Externally shared dashboards",
+        "Externally shared dashboards",
+        "Roles and permissions"
+      ]
+    },
+    "direct_ollama": {
+      "response_time_sec": 3.058,
+      "response": "You can achieve this by configuring Role-Based Access Control (RBAC) in Grafana. Here's how:\n\n1. Create a new role with the necessary permissions to view the dashboard, but restrict it so that it doesn't have access to other parts of the system.\n2. Assign this new role to the users who should be able to access the specific dashboard.\n3. Set up a variable in your panel (e.g., `dashboard_id`) and bind it to an expression using the following syntax: `=input.text(\"Dashboard ID\")`.\n4. In the dashboard settings, add a filter that checks if the user has the necessary role or permission for the specified dashboard ID.\n\nTo implement this:\n\na. Go to your Grafana instance's configuration panel (`Settings` > `Security & Permissions`) and toggle on Role-Based Access Control.\nb. Create a new role with the permissions you need (e.g., \"Restricted Dashboard Viewer\").\nc. Assign this role to the users who should be able to access the specific dashboard.\n\nAdditionally, if you want to restrict access to a particular panel within a dashboard:\n\nd. Go to your panel's settings (`Edit Panel`) and add a filter that checks for the user's role or permission.\ne. Use an expression like `=user.hasRole(\"Restricted Dashboard Viewer\")` to control access to the panel.\n\nThis setup will allow certain users to access specific dashboards or panels while others can still use the rest of the system.",
+      "sources": []
+    }
+  },
+  {
+    "query": "If I want to upgrade Grafana safely on a production system, what preparation and backup steps should I perform first?",
+    "rag": {
+      "response_time_sec": 3.458,
+      "response": "To upgrade Grafana safely on a production system, you should back up your database regularly, especially before upgrading. This ensures that you can roll back to a previous version if anything goes wrong during the upgrade process.\n\nYou should also review the known breaking changes and upgrade guides for your specific version of Grafana to account for any potential issues.\n\nAdditionally, it's recommended to update plugins before updating Grafana, as different versions of plugins can interact with each other in complex ways that may cause issues.\n\nFinally, consider upgrading your Grafana instance on a dev or test environment first, using rolling release channels if available, to catch any bugs or problems before deploying the upgrade to production.",
+      "sources": [
+        "Back up Grafana",
+        "Strategies for upgrading your self-managed Grafana instance",
+        "Upgrade guide common tasks",
+        "Set up Git Sync",
+        "Migrate from Grafana OSS/Enterprise to Grafana Cloud using the Grafana Cloud Migration Assistant"
+      ]
+    },
+    "direct_ollama": {
+      "response_time_sec": 1.783,
+      "response": "Before upgrading Grafana on a production system:\n\n1. **Backup your Grafana database**: Run the command `docker exec grafana grafana-cli backup` (if using Docker) or back up your MySQL/MariaDB database directly.\n2. **Take a snapshot of your configuration files**: Backup your Grafana configuration files, usually located at `/etc/grafana` (or equivalent).\n3. **Verify current version and dependencies**: Check the current Grafana version and ensure all dependencies are updated to compatible versions.\n4. **Test the upgrade on a non-production environment**: If possible, test the upgrade on a staging or development environment first.\n\nIf unsure about any of these steps, it's recommended to consult Grafana's official documentation and support resources for specific guidance on upgrading Grafana in your production system.",
+      "sources": []
+    }
+  },
+  {
+    "query": "How do I install a plugin, verify that Grafana recognizes it correctly, and troubleshoot the issue if it does not appear in the UI?",
+    "rag": {
+      "response_time_sec": 5.914,
+      "response": "Installing a plugin can be done through various methods. Here's a step-by-step guide:\n\n**Method 1: Install via the Grafana UI**\n\n1. Go to **Administration > Plugins and data > Plugins**\n2. Browse for the desired plugin, click on its logo\n3. Click **Install**\n\n**Method 2: Install using Grafana CLI**\n\nUse the `grafana-cli` command to install plugins. For example:\n```bash\ngrafana-cli plugins install <plugin-id>\n```\nVerify that the plugin is installed by checking the plugin list in the UI.\n\n**Method 3: Install from a ZIP file**\n\nDownload the plugin archive, extract it to the plugin directory. For example:\n```bash\nunzip my-plugin-0.2.0.zip -d /var/lib/grafana/plugins/my-plugin/\n```\nVerify that the plugin is installed by checking the plugin list in the UI.\n\n**Method 4: Install using Grafana configuration (Grafana 11.5.0 or later)**\n\nAdd the plugin ID to the `plugins.preinstall` section in the Grafana configuration file. For example:\n```bash\nplugins.preinstall = grafana-oncall-app,redis-datasource\n```\nVerify that the plugin is installed by checking the plugin list in the UI.\n\n**Troubleshooting:**\n\nIf a plugin does not appear in the UI after installation:\n\n1. Check the plugin's configuration file for any errors.\n2. Verify that the plugin's dependencies are correctly configured.\n3. Try reinstalling the plugin using a different method (e.g., CLI or ZIP file).\n4. If issues persist, check the Grafana logs for error messages related to the plugin.\n\nRemember to restart Grafana after making changes to its configuration or installing plugins to ensure they take effect.",
+      "sources": [
+        "Configure Grafana",
+        "Migrate from Grafana OSS/Enterprise to Grafana Cloud manually",
+        "Install plugins in Grafana Cloud using Terraform",
+        "Configure Grafana",
+        "Install a plugin"
+      ]
+    },
+    "direct_ollama": {
+      "response_time_sec": 3.518,
+      "response": "Here's the step-by-step process to install a plugin, verify its installation, and troubleshoot any issues:\n\n**Installing a Plugin:**\n\n1. Go to your Grafana server's plugins folder (`/var/lib/grafana/plugins` by default) or upload it through the web interface (Settings > Plugins).\n2. Extract the downloaded plugin archive into the plugins folder.\n3. Reload the Grafana service using `sudo systemctl reload grafana-server` (on Linux) or restart the Grafana server.\n\n**Verifying Plugin Installation:**\n\n1. Log in to your Grafana instance and go to **Settings > Plugins**.\n2. Verify that the installed plugin is listed under \"Enabled plugins\".\n3. Check the plugin's version, description, and configuration options are displayed correctly.\n\n**Troubleshooting Issues:**\n\nIf the plugin does not appear in the UI:\n\n1. **Check Plugin Folder:** Ensure the plugin folder exists at `grafana/plugins/<plugin-name>` and contains the correct files.\n2. **Verify Plugin Configuration:** Review the plugin's settings and configuration options (e.g., permissions, authentication).\n3. **Restart Grafana Service:** Restart the Grafana service to ensure it reloads the plugins.\n4. **Check Logs:** Inspect the Grafana logs for any errors or warnings related to the plugin (`sudo journalctl -u grafana-server` on Linux).\n5. **Try Disabling and Re-enabling:** Temporarily disable the plugin (Settings > Plugins), then re-enable it.\n\nIf none of these steps resolve the issue, you may want to seek additional help from the Grafana community or check the official documentation for specific troubleshooting guidance related to your plugin.",
+      "sources": []
+    }
+  }
+]
