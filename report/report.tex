@@ -21,6 +21,7 @@
 \documentclass[fleqn,moreauthors,10pt]{ds_report}
 \usepackage[english]{babel}
 \usepackage{arydshln}
+\usepackage{fontspec}
 
 \graphicspath{{fig/}}
 
@@ -48,7 +49,7 @@
 \affiliation{\textit{Advisors: Slavko Žitnik}}
 
 % Keywords
-\Keywords{Keyword1, Keyword2, Keyword3 ...}
+\Keywords{Retrieval-Augmented Generation (RAG), Grafana, Large Language Models (LLM), Technical Documentation, AI Assistant, LlamaIndex, Natural Language Processing.}
 \newcommand{\keywordname}{Keywords}
 
 
@@ -57,7 +58,7 @@
 %----------------------------------------------------------------------------------------
 
 \Abstract{
-The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here. The abstract goes here.
+Grafana’s extensive features and capabilities are supported by vast documentation, making it difficult for users to quickly locate specific information. This report presents the development of an AI-powered assistant designed specifically for official Grafana documentation to help system administrators and developers resolve queries efficiently. Utilizing a Retrieval-Augmented Generation (RAG) architecture running locally via Ollama, the system processes documentation chunks with LlamaIndex and stores them in a vector database for semantic retrieval. Two iterations of the assistant were tested: an initial fixed-length chunking model and a final version using file-direct metadata extraction. Performance analysis using 20 complex technical queries demonstrated that the RAG-based assistant significantly outperformed a standard Llama 3.1 8B model in both accuracy and helpfulness. The results suggest that deploying a specialized RAG framework offers a more precise, context-aware alternative to general AI tools, reducing setup and troubleshooting time for Grafana users.
 }
 
 %----------------------------------------------------------------------------------------
@@ -173,11 +174,93 @@ Another way to improve performance is to improve retrieval. This could be achiev
 
 The final idea for improvement is to try out different models and compare their performance. Some models might be better suited to this specific task than others, especially when dealing with technical documentation such as Grafana docs. In addition to answer quality, we could also compare the models based on speed, consistency, and hardware requirements.
 
+\section*{Final implementation}
+
+For the final implementation we made some improvements to the previous version. The initial implementation was making chunks based on text length, but for the newer version no longer uses fixed length-based chunking. The other difference is that we get the metadata directly from the files now.
+
+\subsection*{Performance analysis}
+
+These results were obtained from a test similar to the initial evaluation. We compared the results to the Llama 3.1 8B model \cite{grattafiori2024llama3herd} to see how it compares to a general AI model. We also made some more complicated queries, since the ones in the initial test were too simplistic. The results are displayed in the table \ref{tab:final_analysis} in appendix.
+
+\textbf{Queries used for testing}
+\begin{enumerate}
+    \item "What is Grafana used for?"
+    \item "How do I create a new dashboard in Grafana?"
+    \item "Explain how to set up alerts in Grafana."
+    \item "What data sources does Grafana support?"
+    \item "How can I share a dashboard with others in Grafana?"
+    \item "Describe the process to install plugins in Grafana."
+    \item "How do I manage user permissions in Grafana?"
+    \item "What is the default port for Grafana?"
+    \item "How to upgrade Grafana to the latest version?"
+    \item "Where are Grafana logs stored?"
+    \item"A team wants to migrate Grafana to a new server, keep existing dashboards, preserve user access, and avoid breaking plugins. What should they back up and reconfigure?"
+    \item"An administrator upgraded Grafana and now alerts are not firing, some dashboards show missing data sources, and users report access issues. What should be checked first and in what order?"
+    \item"How would you set up Grafana for a team where developers can edit dashboards, managers can only view them, and alert notifications must still reach both groups when needed?"
+    \item"If a dashboard must be shared externally but the underlying data source and editing permissions should remain restricted, what Grafana features or settings are relevant?"
+    \item"What steps would be involved in setting up a completely new Grafana instance with a Prometheus data source, alerting, user access control, and a shareable dashboard?"
+    \item"What files and directories are important when troubleshooting Grafana startup problems, especially when checking logs and configuration?"
+    \item"How do I troubleshoot a situation where alert rules exist but notifications are not being sent in Grafana?"
+    \item"How can I configure Grafana so that only certain users can access a specific dashboard while others can still use the rest of the system?"
+    \item"If I want to upgrade Grafana safely on a production system, what preparation and backup steps should I perform first?"
+    \item"How do I install a plugin, verify that Grafana recognizes it correctly, and troubleshoot the issue if it does not appear in the UI?"
+\end{enumerate}
+
+Each model is rated on:
+\begin{itemize}
+    \item \textbf{Accuracy}: is the information correct and Grafana-specific?
+    \item \textbf{Helpfulness}: does it actually answer the user's question with the usable detail?
+\end{itemize}
+
+Our model performed overall better than the llama model. The answers were generally more helpful but more importantly, they were more accurate and Grafana specific in most cases. The few outliers where the Llama 3.1 8B model gave a better response were all on the simpler queries.
+
+\subsection*{Problematic cases}
+
+Here we will cover the cases where our model performed worse than the Llama 3.1 8B model. In case 1, the Llama model gave a borader answer. It had more information because it is trained on a much broader dataset. In case 4, our model listed less supported data sources. There are probably some compatible data sources that are not explicitly listed in the documentation. In case 8, the query was ”What is the default port for Grafana?”. Our model responded with only the number 3000. The answer is correct but it could just add a few more words. A good example would be "The default port for Grafana is 3000." or something similar. The remaining 3 cases probably have similar reasons, where some information from outside of the documentation was crucial to the answer.
+
+\section*{Conclusion}
+
+This project showed that a RAG-based assistant can be an effective tool for navigating extensive technical documentation. The final system produced answers that were generally more accurate, more relevant, and more helpful than those of a standalone general-purpose LLM, especially for complex queries. Although there is still room for improvement in retrieval quality, response speed, and evaluation methodology, the results indicate that a domain-specific RAG approach is a practical solution for supporting Grafana users in real troubleshooting and setup tasks.
+
 %----------------------------------------------------------------------------------------
 %	REFERENCE LIST
 %----------------------------------------------------------------------------------------
 \bibliographystyle{unsrt}
 \bibliography{report}
 
+\appendix
+\section*{Appendix}
+
+\begin{table}[h]
+  \centering
+  \setlength{\tabcolsep}{2.5pt} 
+  \caption{Model analysis}
+  \label{tab:final_analysis}
+  \begin{tabular}{r|cc|cc|c|cc|cc}
+    % \multicolumn{1}{c}{} is used before Score to hide the vertical line in this row
+    & \multicolumn{2}{c}{\textbf{RAG}} & \multicolumn{2}{c}{\textbf{Direct}} & \multicolumn{1}{c}{} & \multicolumn{2}{c}{\textbf{Score}} & \multicolumn{2}{c}{\textbf{Time (s)}} \\
+    \textbf{\#} & \textbf{Acc.} & \textbf{Help.} & \textbf{Acc.} & \textbf{Help.} & \textbf{Winner} & \textbf{RAG} & \textbf{Dir.} & \textbf{RAG} & \textbf{Dir.}\\\hline
+    1 & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"25D0}} & Direct & 4/5 & 5/5 & 2.695 & 1.017\\
+    2 & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"25D0}} & Direct & 2/5 & 2/5 & 2.832 & 1.132\\
+    3 & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"25D0}} & RAG & 5/5 & 2/5 & 3.787 & 3.620\\
+    4 & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"274C}} & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"2705}} & Direct & 3/5 & 4/5 & 1.622 & 0.990\\
+    5 & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"274C}} & RAG & 5/5 & 2/5 & 4.798 & 0.889\\
+    6 & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"2705}} & Direct & 3/5 & 5/5 & 5.063 & 1.705\\
+    7 & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"25D0}} & RAG & 5/5 & 3/5 & 3.007 & 1.443\\
+    8 & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"2705}} & Direct & 5/5 & 5/5 & 2.082 & 0.323\\
+    9 & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"25D0}} & RAG & 5/5 & 4/5 & 5.214 & 1.833\\
+    10 & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"274C}} & {\fontspec{Symbola}\symbol{"274C}} & {\fontspec{Symbola}\symbol{"274C}} & RAG & 5/5 & 2/5 & 1.589 & 1.295\\
+    11 & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"2705}} & Direct & 3/5 & 4/5 & 2.813 & 1.707\\
+    12 & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"2705}} & Direct & 3/5 & 4/5 & 3.379 & 1.682\\
+    13 & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"25D0}} & RAG & 5/5 & 4/5 & 4.866 & 2.847\\
+    14 & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"25D0}} & RAG & 5/5 & 4/5 & 4.482 & 2.173\\
+    15 & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"25D0}} & RAG & 5/5 & 4/5 & 5.429 & 3.380\\
+    16 & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"25D0}} & RAG & 5/5 & 4/5 & 3.805 & 2.553\\
+    17 & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"25D0}} & RAG & 5/5 & 2/5 & 4.781 & 1.926\\
+    18 & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"274C}} & {\fontspec{Symbola}\symbol{"274C}} & RAG & 5/5 & 4/5 & 4.154 & 3.058\\
+    19 & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"25D0}} & RAG & 5/5 & 5/5 & 3.458 & 1.783\\
+    20 & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"2705}} & {\fontspec{Symbola}\symbol{"25D0}} & {\fontspec{Symbola}\symbol{"2705}} & RAG & 5/5 & 3/5 & 5.914 & 3.518\\
+  \end{tabular}
+\end{table}
 
 \end{document}
