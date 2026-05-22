@@ -1,3 +1,5 @@
+import yaml
+import re
 from llama_index.core import VectorStoreIndex, StorageContext, Settings
 from llama_index.core.readers import SimpleDirectoryReader
 from llama_index.core.node_parser import MarkdownElementNodeParser, SentenceSplitter
@@ -14,24 +16,39 @@ Settings.embed_model = OllamaEmbedding(
 Settings.llm = Ollama(
     model="llama3.1:8b",
     base_url="http://localhost:11434",
-    request_timeout=120.0,
+    request_timeout=2400.0,
 )
+
+def extract_frontmatter_metadata(filepath):
+    try:
+        text = open(filepath).read()
+        match = re.match(r'^---\n(.*?)\n---\n', text, re.DOTALL)
+        if not match:
+            return {}
+        frontmatter = yaml.safe_load(match.group(1))
+        return {
+            "title": frontmatter.get("title", ""),
+            "description": frontmatter.get("description", ""),
+            "products": ", ".join(frontmatter.get("labels", {}).get("products", [])),
+        }
+    except Exception:
+        return {}
 
 documents = SimpleDirectoryReader(
     input_dir="./grafana/docs/sources",
     recursive=True,
     required_exts=[".md"],
     filename_as_id=True,
+    file_metadata=extract_frontmatter_metadata,
 ).load_data()
 
 pipeline = IngestionPipeline(
     transformations=[
-        MarkdownElementNodeParser(),
-        SentenceSplitter(chunk_size=512, chunk_overlap=64),
+        MarkdownElementNodeParser()
     ]
 )
 
-nodes = pipeline.run(documents=documents)
+nodes = pipeline.run(documents=documents, num_workers=1)
 
 chroma_client = chromadb.PersistentClient(path="./chroma_db")
 collection = chroma_client.get_or_create_collection("grafana")
