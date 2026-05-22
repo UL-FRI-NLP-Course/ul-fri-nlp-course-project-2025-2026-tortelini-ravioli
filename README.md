@@ -1,8 +1,38 @@
 # Natural language processing course: `Grafana Documentation Chatbot`
 
+## Description
+
+The goal of this project is to build an AI assistant that helps users access relevant parts of the Grafana documentation more easily. Grafana is a widely used open-source platform, but navigating its extensive documentation can sometimes be difficult. 
+
+This chatbot uses a Retrieval-Augmented Generation (RAG) approach to retrieve the most relevant sections of the documentation based on a user's query. It then uses a language model to generate an accurate, context-aware answer grounded directly in the official documentation. By narrowing the focus specifically to official documentation, the assistant aims to deliver more precise and relevant answers, reducing the time needed to solve specific problems and learn new Grafana features.
+
 ## Proposed datasets:
 
 - [Grafana Labs - Technical documentation](https://grafana.com/docs/)
+
+## Installation
+
+For detailed installation instructions and prerequisites (including Ollama and required Python packages), please see [src/DOCS.md](src/DOCS.md#building-the-rag-dataset).
+
+## Usage
+
+Once you have installed the required dependencies and cloned the documentation, you can run the following scripts from the `src` directory:
+
+1. **Prepare the database:** Build the vector database using the downloaded documentation:
+   ```bash
+   cd src
+   python prepare-db.py
+   ```
+
+2. **Query the documentation:** Start an interactive REPL session to query the Grafana documentation:
+   ```bash
+   python query.py
+   ```
+
+3. **Run benchmarks:** Evaluate the pipeline with the provided benchmark suite:
+   ```bash
+   python benchmark.py
+   ```
 
 ## Future directions and ideas
 
